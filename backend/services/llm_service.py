@@ -23,6 +23,15 @@ prompt = PromptTemplate(
     partial_variables={"format_instructions": parser.get_format_instructions()},
 )
 
+# print("Format Instructions:\n", parser.get_format_instructions())
+# print("Full Prompt Example:\n", prompt.format(
+#     resume="Sample resume",
+#     jd="Sample JD",
+#     tone="professional",
+#     focus="leadership",
+# ))
+
+
 chain = LLMChain(llm=llm, prompt=prompt)
 
 import json

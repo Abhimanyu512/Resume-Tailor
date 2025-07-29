@@ -16,17 +16,17 @@ Skills: Java, Spring Boot, SQL, REST, Informatica
 Education: B.Tech in Computer Science, XYZ University
 """
 
-# jd_text = """
-# We’re looking for a Backend Engineer with strong Java + Spring Boot experience. 
-# Bonus if you've worked with LLM APIs, database optimization, and clean API design.
-# """
+jd_text = """
+We’re looking for a Backend Engineer with strong Java + Spring Boot experience. 
+Bonus if you've worked with LLM APIs, database optimization, and clean API design.
+"""
 
 # output = generate_tailored_resume(resume_text, jd_text, tone="formal", focus="impact")
 # print(output)
 
 result = generate_tailored_resume(
-    resume_text="Experienced Java backend engineer with Spring Boot...",
-    jd_text="Looking for a full-stack engineer with experience in APIs, cloud and machine learning...",
+    resume_text=resume_text,
+    jd_text=jd_text,
     tone="professional",
     focus="leadership"
 )
