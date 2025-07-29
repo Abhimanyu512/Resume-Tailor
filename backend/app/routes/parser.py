@@ -9,6 +9,7 @@ router = APIRouter()
 async def parse_resume(file: UploadFile = File(...)):
     try:
         resume_text = parse_resume_file(file)
+        print(resume_text)
         return {"resume_text": resume_text}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -23,6 +24,7 @@ async def parse_job_description(data: JobDescriptionRequest):
         jd_text = data.job_description.strip()
         if not jd_text:
             raise ValueError("Job description is empty.")
+        print(jd_text)
         return {"job_description_text": jd_text}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
