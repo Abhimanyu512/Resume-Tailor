@@ -22,5 +22,5 @@ class TailoredResume(BaseModel):
     summary: str
     skills: List[str]
     experience: List[Experience]
-    projects: List[Project]
-    education: List[Education]
+    projects: Optional[List[Project]] = []
+    education: Optional[List[Education]] = []

@@ -1,68 +1,54 @@
 resume_prompt = """
-You are an expert career assistant.
+You are an expert resume writer and extractor.
 
-You are given:
-- A user's resume
-- A job description
-- A tone and focus keyword
+Given a candidate's resume, a job description, tone, and focus area, return a structured JSON object tailored for the job.
 
-Your job is to generate a full tailored resume based on the inputs.
+The JSON must strictly follow this format:
 
-Output a JSON object exactly matching this structure:
+{format_instructions}
+
+Example:
 
 {{
-  "name": "Full name as a string",
-  "summary": "Brief summary as a string",
-  "skills": ["list", "of", "skills"],
+  "name": "<full name>",
+  "summary": "<professional summary aligned with JD>",
+  "skills": [list of relevant technical and soft skills],
   "experience": [
     {{
-      "job_title": "Job title string",
-      "company": "Company name string",
-      "duration": "Duration string (e.g. 2019-2023)",
-      "description": "Description string"
-    }}
+      "job_title": "<title>",
+      "company": "<company>",
+      "duration": "<duration>",
+      "description": "<1-3 bullet summary of achievements>"
+    }},
+    ...
   ],
   "projects": [
     {{
-      "title": "Project title string",
-      "description": "Project description string",
-      "tech_stack": ["list", "of", "technologies"]  // optional, can be empty list
-    }}
+      "title": "<project name>",
+      "description": "<summary of what was built and impact>",
+      "tech_stack": [list of technologies used]
+    }},
+    ...
   ],
   "education": [
     {{
-      "degree": "Degree string",
-      "institution": "Institution name string",
-      "duration": "Duration string (e.g. 2015-2019)"
-    }}
+      "degree": "<degree>",
+      "institution": "<institution>",
+      "duration": "<duration>"
+    }},
+    ...
   ]
 }}
 
-Output ONLY the JSON object — no extra text or explanation.
+Only return the JSON.
 
-TONE: {{tone}}
-FOCUS: {{focus}}
-USER RESUME: {{resume}}
-JOB DESCRIPTION: {{jd}}
+Candidate Resume:
+{resume}
+
+Job Description:
+{jd}
+
+Tone: {tone}
+Focus: {focus}
+
 """
-
-# """
-# You are an expert career assistant.
-
-# You are given:
-# - A user's resume
-# - A job description
-# - A tone and focus keyword
-
-# Your job is to generate a full tailored resume, structured EXACTLY in this JSON format:
-# {format_instructions}
-
-# Output ONLY the JSON. Do NOT add any explanation, commentary, or extra text.
-
-# If any fields are missing or unclear in the resume, make educated guesses using the job description. Do not leave any required fields empty.
-
-# TONE: {tone}
-# FOCUS: {focus}
-# USER RESUME: {resume}
-# JOB DESCRIPTION: {jd}
-# """
