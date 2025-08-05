@@ -1,6 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import tailor, parser
+from app.routes import parser, tailor
 
 app = FastAPI()
 
