@@ -7,6 +7,8 @@ The JSON must strictly follow this format:
 
 {format_instructions}
 
+IMPORTANT: Do not include empty objects or incomplete entries in any arrays. Only include complete, valid entries with all required fields.
+
 Example:
 
 {{
@@ -39,6 +41,8 @@ Example:
     ...
   ]
 }}
+
+CRITICAL: Ensure all objects in arrays have complete information. If you don't have enough information for a complete entry, omit it entirely rather than including an empty or incomplete object.
 
 Only return the JSON.
 

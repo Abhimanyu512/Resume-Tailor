@@ -106,5 +106,14 @@ def generate_tailored_resume(resume_text, jd_text, tone, focus):
     else:
         raise RuntimeError("No JSON found in LLM output")
 
-    parsed = parser.parse(llm_text)
-    return parsed.dict()
+    print("=== Extracted JSON Text ===")
+    print(llm_text)
+
+    try:
+        parsed = parser.parse(llm_text)
+        return parsed.dict()
+    except Exception as e:
+        print(f"=== Parsing Error ===")
+        print(f"Error: {str(e)}")
+        print(f"JSON Text: {llm_text}")
+        raise RuntimeError(f"Failed to parse TailoredResume: {str(e)}")
