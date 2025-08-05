@@ -5,8 +5,8 @@ from pydantic import PrivateAttr, Field
 from langchain.output_parsers import PydanticOutputParser, OutputFixingParser
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-from backend.schemas.resume_output import TailoredResume
-from backend.services.resume_prompt import resume_prompt
+from ..schemas.resume_output import TailoredResume
+from ..services.resume_prompt import resume_prompt
 import re
 import os
 from dotenv import load_dotenv

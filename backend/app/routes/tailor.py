@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Form
-from backend.services.llm_service import generate_tailored_resume
-from backend.schemas.resume_output import TailoredResume
+from ..services.llm_service import generate_tailored_resume
+from ..schemas.resume_output import TailoredResume
 
 router = APIRouter()
 
